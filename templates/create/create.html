@@ -1,0 +1,63 @@
+{% extends '../base.html' %}
+{% block title %}Create Page{% endblock %}
+{% block body %}
+<div class="container" style="margin-bottom:80px;margin-top:30px;">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            {% if messages %}
+                <ul class="messages" style="color:red; padding-left:0px;">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label">name</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">email</label>
+                    <input type="email" class="form-control" name="email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">image</label>
+                    <input type="file" class="form-control" name="image">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">address</label>
+                    <textarea id="w3review" name="address" rows="1" cols="59"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">phone_number</label>
+                    <input type="number" class="form-control" name="phone_number">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">gender</label>
+                    <select name="gender">
+                        <option value="MALE">MALE</option>
+                        <option value="FEMALE">FEMALE</option>
+                        <option value="OTHERS">OTHERS</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">religion</label>
+                    <select name="religion">
+                        <option value="ISLAM">ISLAM</option>
+                        <option value="HINDU">HINDU</option>
+                        <option value="BUDDHO">BUDDHO</option>
+                        <option value="KRISTIAN">KRISTIAN</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">date_of_birth</label>
+                    <input type="date" class="form-control" name="date_of_birth">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
