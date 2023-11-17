@@ -46,3 +46,7 @@ def update(request, id):
                 messages.success(request, "Profile details updated.")
                 return redirect('home')
     return render(request, 'update/update.html', locals())
+
+
+def palash():
+    pass
